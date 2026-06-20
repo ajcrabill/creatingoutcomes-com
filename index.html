@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creating Outcomes — Practical Governance for School Boards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      color: #333;
+      background: #fff;
+    }
+
+    a { text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #F5F5F0;
+      border-bottom: 2px solid #0D7377;
+      padding: 0 20px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: #4A4E69;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #0D7377;
+      font-weight: 500;
+      font-size: 15px;
+    }
+    .nav-links a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 14px; }
+    }
+
+    /* HERO */
+    .hero {
+      background: #0D7377;
+      color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+    .hero p {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      opacity: 0.92;
+    }
+    .btn-hero {
+      display: inline-block;
+      background: #fff;
+      color: #0D7377;
+      border-radius: 4px;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+    }
+    .btn-hero:hover { opacity: 0.9; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 26px; }
+      .hero p { font-size: 16px; }
+    }
+
+    /* FEATURED */
+    .featured {
+      background: #F5F5F0;
+      padding: 60px 20px;
+    }
+    .featured-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #4A4E69;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+    }
+
+    /* BADGES */
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .badge-teal { background: #0D7377; }
+    .badge-light-teal { background: #14A085; }
+    .badge-slate { background: #4A4E69; }
+
+    .featured-q {
+      font-size: 24px;
+      font-weight: 600;
+      color: #4A4E69;
+      margin: 16px 0;
+      line-height: 1.4;
+    }
+    .featured-preview {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+    .read-link {
+      color: #0D7377;
+      font-weight: 500;
+      font-size: 15px;
+    }
+    .read-link:hover { text-decoration: underline; }
+
+    /* FEED */
+    .feed {
+      background: #fff;
+      padding: 60px 20px;
+    }
+    .feed-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .feed h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #4A4E69;
+      margin-bottom: 32px;
+    }
+    .feed-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 768px) {
+      .feed-grid { grid-template-columns: 1fr; }
+    }
+    /* Third card spans full width only if it's odd one out */
+    .feed-grid .card:nth-child(3):last-child {
+      grid-column: 1 / -1;
+      max-width: calc(50% - 12px);
+    }
+    @media (max-width: 768px) {
+      .feed-grid .card:nth-child(3):last-child {
+        grid-column: 1;
+        max-width: 100%;
+      }
+    }
+
+    .card {
+      background: #F5F5F0;
+      border-radius: 8px;
+      padding: 24px;
+      border-top: 3px solid #0D7377;
+    }
+    .card-q {
+      font-size: 17px;
+      font-weight: 600;
+      color: #4A4E69;
+      margin: 12px 0 10px;
+      line-height: 1.4;
+    }
+    .card-preview {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .card-date {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* SUBSCRIBE */
+    .subscribe {
+      background: #0D7377;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .subscribe h2 {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 28px;
+      line-height: 1.4;
+    }
+    .subscribe-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .subscribe-form input[type="email"] {
+      padding: 12px 16px;
+      border: none;
+      border-radius: 4px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      min-width: 260px;
+      outline: none;
+    }
+    .subscribe-form button {
+      padding: 12px 24px;
+      background: #fff;
+      color: #0D7377;
+      border: none;
+      border-radius: 4px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .subscribe-form button:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer {
+      background: #4A4E69;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    footer p {
+      font-size: 14px;
+      line-height: 1.8;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Creating Outcomes</a>
+      <ul class="nav-links">
+        <li><a href="#feed">Browse Q&amp;As</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#subscribe">Subscribe</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Every board wants better outcomes. These are the questions that actually get you there.</h1>
+      <p>Creating Outcomes publishes practical governance Q&amp;As every other day — real questions, straight answers, applied outcomes-focused framework.</p>
+      <a href="#feed" class="btn-hero">Browse Q&amp;As →</a>
+    </div>
+  </section>
+
+  <!-- FEATURED Q&A -->
+  <section class="featured">
+    <div class="featured-inner">
+      <p class="section-label">Featured Q&amp;A</p>
+      <span class="badge badge-teal">Monitor Progress</span>
+      <p class="featured-q">How does a board shift its agenda from operational reporting to genuine outcome monitoring?</p>
+      <p class="featured-preview">The shift starts with the monitoring calendar, not the agenda template. Most boards try to redesign their meetings first — new agenda format, new consent agenda, new time limits. None of it sticks because the underlying question hasn't been answered: what student outcomes are we actually monitoring, and when?</p>
+      <a href="qa/shift-from-reporting-to-monitoring.html" class="read-link">Read full answer →</a>
+    </div>
+  </section>
+
+  <!-- FEED -->
+  <section class="feed" id="feed">
+    <div class="feed-inner">
+      <h2>Recent Q&amp;As</h2>
+      <div class="feed-grid">
+
+        <div class="card">
+          <span class="badge badge-light-teal">Clarify Priorities</span>
+          <p class="card-q">What's the difference between a board goal and a district goal?</p>
+          <p class="card-preview">Most boards confuse board goals (what students will achieve by when) with district goals (what the organization will do to get there). The distinction sounds academic until you try to hold anyone accountable for student outcomes.</p>
+          <div class="card-meta">
+            <span class="card-date">June 17, 2026</span>
+            <a href="qa/board-vs-district-goals.html" class="read-link">Read more →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-slate">Align Resources</span>
+          <p class="card-q">Our budget doesn't connect to our goals. How do we fix that without a full strategic plan overhaul?</p>
+          <p class="card-preview">You don't need a new strategic plan. You need a budget narrative that asks one question for every major allocation: how does this spending connect to our student outcome goals? Start with the biggest budget lines and work backward.</p>
+          <div class="card-meta">
+            <span class="card-date">June 15, 2026</span>
+            <a href="#" class="read-link">Read more →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge badge-light-teal">Communicate Results</span>
+          <p class="card-q">How do we report student progress in a way that the community actually understands?</p>
+          <p class="card-preview">Most board progress reports are written for board members, not communities. The fix is simpler than most people think: one page, three numbers, one trend, one action. That's it.</p>
+          <div class="card-meta">
+            <span class="card-date">June 13, 2026</span>
+            <a href="#" class="read-link">Read more →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE -->
+  <section class="subscribe" id="subscribe">
+    <h2>New governance answers every Monday, Wednesday, and Friday</h2>
+    <form class="subscribe-form" onsubmit="return false;">
+      <input type="email" placeholder="your@email.com">
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="about">
+    <p>Creating Outcomes — practical governance for school board members</p>
+    <p>© 2026 Creating Outcomes</p>
+  </footer>
+
+</body>
+</html>
