@@ -3,364 +3,415 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Creating Outcomes — Practical Governance for School Boards</title>
+  <title>Creating Outcomes — Governance Guidance for School Boards</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue:   #0D4F72;
+      --gold:   #F2B705;
+      --bg:     #FEFCF8;
+      --cream:  #F5F0E8;
+      --rule:   #E8E0D0;
+      --text:   #1A1A2E;
+      --muted:  #6B6878;
+    }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'IBM Plex Sans', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 400;
-      color: #333;
-      background: #fff;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
     }
 
-    a { text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
 
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #F5F5F0;
-      border-bottom: 2px solid #0D7377;
-      padding: 0 20px;
-    }
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-    .nav-logo {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-weight: 600;
-      font-size: 20px;
-      color: #4A4E69;
-    }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-    .nav-links a {
-      color: #0D7377;
-      font-weight: 500;
-      font-size: 15px;
-    }
-    .nav-links a:hover { text-decoration: underline; }
-
-    @media (max-width: 768px) {
-      .nav-links { gap: 16px; }
-      .nav-links a { font-size: 14px; }
-    }
-
-    /* HERO */
-    .hero {
-      background: #0D7377;
-      color: #fff;
-      padding: 80px 20px;
+    /* ─── NAV ─────────────────────────────────────────── */
+    header {
+      padding: 52px 24px 40px;
       text-align: center;
     }
-    .hero-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-    .hero h1 {
-      font-size: 36px;
-      font-weight: 600;
-      line-height: 1.3;
-      margin-bottom: 24px;
-    }
-    .hero p {
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 36px;
-      opacity: 0.92;
-    }
-    .btn-hero {
+
+    .wordmark {
       display: inline-block;
-      background: #fff;
-      color: #0D7377;
-      border-radius: 4px;
-      padding: 12px 24px;
+      font-family: 'Fraunces', serif;
       font-weight: 600;
-      font-size: 16px;
-      border: none;
-    }
-    .btn-hero:hover { opacity: 0.9; }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 26px; }
-      .hero p { font-size: 16px; }
-    }
-
-    /* FEATURED */
-    .featured {
-      background: #F5F5F0;
-      padding: 60px 20px;
-    }
-    .featured-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .section-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: #4A4E69;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--blue);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 24px 64px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      line-height: 1.25;
+      color: var(--text);
       margin-bottom: 24px;
     }
 
-    /* BADGES */
-    .badge {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 20px;
-      color: #fff;
-      margin-bottom: 16px;
+    .hero h1 em {
+      font-style: italic;
+      color: var(--blue);
     }
-    .badge-teal { background: #0D7377; }
-    .badge-light-teal { background: #14A085; }
-    .badge-slate { background: #4A4E69; }
+
+    .hero p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ─── GOLD RULE ───────────────────────────────────── */
+    .gold-rule {
+      display: block;
+      width: 80px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 72px;
+    }
+
+    /* ─── FEATURED ────────────────────────────────────── */
+    .featured {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
 
     .featured-q {
-      font-size: 24px;
-      font-weight: 600;
-      color: #4A4E69;
-      margin: 16px 0;
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 1.45rem;
       line-height: 1.4;
-    }
-    .featured-preview {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #555;
+      color: var(--text);
       margin-bottom: 20px;
-      max-width: 720px;
     }
-    .read-link {
-      color: #0D7377;
-      font-weight: 500;
-      font-size: 15px;
-    }
-    .read-link:hover { text-decoration: underline; }
 
-    /* FEED */
-    .feed {
-      background: #fff;
-      padding: 60px 20px;
+    .featured-teaser {
+      font-size: 0.975rem;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 24px;
     }
-    .feed-inner {
-      max-width: 1100px;
+
+    .read-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+
+    .read-link:hover { opacity: 0.75; }
+
+    /* ─── QUESTION LIST ───────────────────────────────── */
+    .question-list {
+      max-width: 720px;
       margin: 0 auto;
+      padding: 0 24px 96px;
     }
-    .feed h2 {
-      font-size: 28px;
-      font-weight: 600;
-      color: #4A4E69;
+
+    .question-list > .section-label {
       margin-bottom: 32px;
     }
-    .feed-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    @media (max-width: 768px) {
-      .feed-grid { grid-template-columns: 1fr; }
-    }
-    /* Third card spans full width only if it's odd one out */
-    .feed-grid .card:nth-child(3):last-child {
-      grid-column: 1 / -1;
-      max-width: calc(50% - 12px);
-    }
-    @media (max-width: 768px) {
-      .feed-grid .card:nth-child(3):last-child {
-        grid-column: 1;
-        max-width: 100%;
-      }
-    }
 
-    .card {
-      background: #F5F5F0;
-      border-radius: 8px;
-      padding: 24px;
-      border-top: 3px solid #0D7377;
-    }
-    .card-q {
-      font-size: 17px;
-      font-weight: 600;
-      color: #4A4E69;
-      margin: 12px 0 10px;
-      line-height: 1.4;
-    }
-    .card-preview {
-      font-size: 14px;
-      line-height: 1.65;
-      color: #555;
-      margin-bottom: 16px;
-    }
-    .card-meta {
+    .question-item {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .card-date {
-      font-size: 13px;
-      color: #888;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--rule);
     }
 
-    /* SUBSCRIBE */
-    .subscribe {
-      background: #0D7377;
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
+    .question-item:first-of-type {
+      border-top: 1px solid var(--rule);
     }
-    .subscribe h2 {
-      font-size: 26px;
-      font-weight: 600;
-      margin-bottom: 28px;
+
+    .question-item a.q-link {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 1.1rem;
       line-height: 1.4;
+      color: var(--text);
+      flex: 1;
+      transition: color 0.2s;
     }
+
+    .question-item a.q-link:hover { color: var(--blue); }
+
+    .q-tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ─── SUBSCRIBE ───────────────────────────────────── */
+    .subscribe-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 96px;
+    }
+
+    .subscribe-box {
+      background: var(--cream);
+      border-radius: 4px;
+      padding: 56px 48px;
+      text-align: center;
+    }
+
+    .subscribe-box p.headline {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 1.35rem;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .subscribe-box p.sub {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
     .subscribe-form {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
     }
-    .subscribe-form input[type="email"] {
-      padding: 12px 16px;
-      border: none;
-      border-radius: 4px;
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 15px;
-      min-width: 260px;
-      outline: none;
-    }
-    .subscribe-form button {
-      padding: 12px 24px;
-      background: #fff;
-      color: #0D7377;
-      border: none;
-      border-radius: 4px;
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .subscribe-form button:hover { opacity: 0.9; }
 
-    /* FOOTER */
-    footer {
-      background: #4A4E69;
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
+    .subscribe-form input[type="email"] {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 12px 18px;
+      border: 1.5px solid var(--rule);
+      border-radius: 3px;
+      background: var(--bg);
+      color: var(--text);
+      min-width: 240px;
+      outline: none;
+      transition: border-color 0.2s;
     }
-    footer p {
-      font-size: 14px;
-      line-height: 1.8;
-      opacity: 0.85;
+
+    .subscribe-form input[type="email"]:focus {
+      border-color: var(--blue);
+    }
+
+    .subscribe-form input[type="email"]::placeholder {
+      color: #B0A8A0;
+    }
+
+    .subscribe-form button {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 12px 24px;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+
+    .subscribe-form button:hover { opacity: 0.88; }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--rule);
+      text-align: center;
+      padding: 40px 24px 48px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: #B0A8A0;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 600px) {
+      .question-item {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .q-tag { font-size: 0.6rem; }
+
+      .subscribe-box {
+        padding: 40px 28px;
+      }
+
+      .hero h1 { font-size: 1.75rem; }
     }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Creating Outcomes</a>
-      <ul class="nav-links">
-        <li><a href="#feed">Browse Q&amp;As</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#subscribe">Subscribe</a></li>
-      </ul>
-    </div>
-  </nav>
+  <header>
+    <a href="index.html" class="wordmark">Creating Outcomes</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#questions">All Questions</a></li>
+      <li><a href="#subscribe">Subscribe</a></li>
+    </ul>
+  </header>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner">
-      <h1>Every board wants better outcomes. These are the questions that actually get you there.</h1>
-      <p>Creating Outcomes publishes practical governance Q&amp;As every other day — real questions, straight answers, applied outcomes-focused framework.</p>
-      <a href="#feed" class="btn-hero">Browse Q&amp;As →</a>
-    </div>
+    <h1>The questions board members are asking.<br><em>The answers that actually help.</em></h1>
+    <p>Governance guidance grounded in the GOTB framework.</p>
   </section>
 
-  <!-- FEATURED Q&A -->
+  <!-- GOLD RULE -->
+  <span class="gold-rule"></span>
+
+  <!-- FEATURED QUESTION -->
   <section class="featured">
-    <div class="featured-inner">
-      <p class="section-label">Featured Q&amp;A</p>
-      <span class="badge badge-teal">Monitor Progress</span>
-      <p class="featured-q">How does a board shift its agenda from operational reporting to genuine outcome monitoring?</p>
-      <p class="featured-preview">The shift starts with the monitoring calendar, not the agenda template. Most boards try to redesign their meetings first — new agenda format, new consent agenda, new time limits. None of it sticks because the underlying question hasn't been answered: what student outcomes are we actually monitoring, and when?</p>
-      <a href="qa/shift-from-reporting-to-monitoring.html" class="read-link">Read full answer →</a>
-    </div>
+    <span class="section-label">Featured Question</span>
+    <p class="featured-q">How does a board shift its agenda from operational reporting to genuine outcome monitoring?</p>
+    <p class="featured-teaser">The shift starts with the monitoring calendar, not the agenda template. Most boards try to redesign their meetings first — new agenda format, new consent agenda, new time limits. None of it sticks because the underlying question hasn't been answered: what student outcomes are we actually monitoring, and when?</p>
+    <a href="qa/shift-from-reporting-to-monitoring.html" class="read-link">Read the full answer →</a>
   </section>
 
-  <!-- FEED -->
-  <section class="feed" id="feed">
-    <div class="feed-inner">
-      <h2>Recent Q&amp;As</h2>
-      <div class="feed-grid">
+  <!-- QUESTION LIST -->
+  <section class="question-list" id="questions">
+    <span class="section-label">Recent Questions</span>
 
-        <div class="card">
-          <span class="badge badge-light-teal">Clarify Priorities</span>
-          <p class="card-q">What's the difference between a board goal and a district goal?</p>
-          <p class="card-preview">Most boards confuse board goals (what students will achieve by when) with district goals (what the organization will do to get there). The distinction sounds academic until you try to hold anyone accountable for student outcomes.</p>
-          <div class="card-meta">
-            <span class="card-date">June 17, 2026</span>
-            <a href="qa/board-vs-district-goals.html" class="read-link">Read more →</a>
-          </div>
-        </div>
+    <div class="question-item">
+      <a href="qa/board-vs-district-goals.html" class="q-link">What's the difference between a board goal and a district goal?</a>
+      <span class="q-tag">Clarify Priorities</span>
+    </div>
 
-        <div class="card">
-          <span class="badge badge-slate">Align Resources</span>
-          <p class="card-q">Our budget doesn't connect to our goals. How do we fix that without a full strategic plan overhaul?</p>
-          <p class="card-preview">You don't need a new strategic plan. You need a budget narrative that asks one question for every major allocation: how does this spending connect to our student outcome goals? Start with the biggest budget lines and work backward.</p>
-          <div class="card-meta">
-            <span class="card-date">June 15, 2026</span>
-            <a href="#" class="read-link">Read more →</a>
-          </div>
-        </div>
+    <div class="question-item">
+      <a href="#" class="q-link">Our budget doesn't connect to our goals. How do we fix that without a full strategic plan overhaul?</a>
+      <span class="q-tag">Align Resources</span>
+    </div>
 
-        <div class="card">
-          <span class="badge badge-light-teal">Communicate Results</span>
-          <p class="card-q">How do we report student progress in a way that the community actually understands?</p>
-          <p class="card-preview">Most board progress reports are written for board members, not communities. The fix is simpler than most people think: one page, three numbers, one trend, one action. That's it.</p>
-          <div class="card-meta">
-            <span class="card-date">June 13, 2026</span>
-            <a href="#" class="read-link">Read more →</a>
-          </div>
-        </div>
+    <div class="question-item">
+      <a href="#" class="q-link">How do we report student progress in a way that the community actually understands?</a>
+      <span class="q-tag">Communicate Results</span>
+    </div>
 
-      </div>
+    <div class="question-item">
+      <a href="#" class="q-link">When should a board member speak up in a meeting, and when should they hold back?</a>
+      <span class="q-tag">Board Culture</span>
+    </div>
+
+    <div class="question-item">
+      <a href="#" class="q-link">What does a healthy superintendent evaluation process actually look like?</a>
+      <span class="q-tag">Governance Practice</span>
+    </div>
+
+    <div class="question-item">
+      <a href="#" class="q-link">How do you build a monitoring calendar when your district has never had one?</a>
+      <span class="q-tag">Monitor Progress</span>
+    </div>
+
+    <div class="question-item">
+      <a href="#" class="q-link">Our board is divided. What's the path forward when trust has broken down?</a>
+      <span class="q-tag">Board Culture</span>
+    </div>
+
+    <div class="question-item">
+      <a href="#" class="q-link">How do outcomes-focused boards handle community pressure to weigh in on operations?</a>
+      <span class="q-tag">Governance Practice</span>
     </div>
   </section>
 
   <!-- SUBSCRIBE -->
-  <section class="subscribe" id="subscribe">
-    <h2>New governance answers every Monday, Wednesday, and Friday</h2>
-    <form class="subscribe-form" onsubmit="return false;">
-      <input type="email" placeholder="your@email.com">
-      <button type="submit">Subscribe</button>
-    </form>
+  <section class="subscribe-wrap" id="subscribe">
+    <div class="subscribe-box">
+      <p class="headline">New questions weekly. No noise.</p>
+      <p class="sub">Practical governance delivered to your inbox.</p>
+      <form class="subscribe-form" onsubmit="return false;">
+        <input type="email" placeholder="your@email.com" aria-label="Email address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer id="about">
-    <p>Creating Outcomes — practical governance for school board members</p>
-    <p>© 2026 Creating Outcomes</p>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#questions">All Questions</a></li>
+      <li><a href="#subscribe">Subscribe</a></li>
+    </ul>
+    <p class="footer-copy">Creating Outcomes &copy; 2026</p>
   </footer>
 
 </body>
