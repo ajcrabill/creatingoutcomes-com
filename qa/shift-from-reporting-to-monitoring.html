@@ -3,218 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How does a board shift its agenda from operational reporting to genuine outcome monitoring? — Creating Outcomes</title>
+  <title>How do we shift our board from receiving reports to actually monitoring outcomes? — Creating Outcomes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-weight: 400;
-      color: #333;
-      background: #fff;
-    }
-
+    body { font-family: 'IBM Plex Sans', sans-serif; font-weight: 400; color: #333; background: #fff; }
     a { text-decoration: none; }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #F5F5F0;
-      border-bottom: 2px solid #0D7377;
-      padding: 0 20px;
-    }
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-    .nav-logo {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-weight: 600;
-      font-size: 20px;
-      color: #4A4E69;
-    }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-    .nav-links a {
-      color: #0D7377;
-      font-weight: 500;
-      font-size: 15px;
-    }
+    nav { position: sticky; top: 0; z-index: 100; background: #F5F5F0; border-bottom: 2px solid #0D7377; padding: 0 20px; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 20px; color: #4A4E69; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: #0D7377; font-weight: 500; font-size: 15px; }
     .nav-links a:hover { text-decoration: underline; }
-
-    @media (max-width: 768px) {
-      .nav-links { gap: 16px; }
-      .nav-links a { font-size: 14px; }
-    }
-
-    /* ARTICLE */
-    .article-wrap {
-      padding: 60px 20px;
-    }
-    .article {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .badge {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 20px;
-      color: #fff;
-      margin-bottom: 20px;
-    }
+    @media (max-width: 768px) { .nav-links { gap: 16px; } .nav-links a { font-size: 14px; } }
+    .article-wrap { padding: 60px 20px; }
+    .article { max-width: 720px; margin: 0 auto; }
+    .badge { display: inline-block; font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 20px; color: #fff; margin-bottom: 20px; }
+    .badge-blue { background: #0D4F72; }
+    .badge-amber { background: #B87A10; }
     .badge-teal { background: #0D7377; }
-
-    .article h1 {
-      font-size: 32px;
-      font-weight: 600;
-      color: #4A4E69;
-      line-height: 1.35;
-      margin-bottom: 12px;
-    }
-    .article-date {
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 36px;
-    }
-
-    .article-body {
-      font-size: 17px;
-      line-height: 1.75;
-      color: #333;
-    }
-    .article-body p {
-      margin-bottom: 20px;
-    }
-    .article-body h2 {
-      font-size: 20px;
-      font-weight: 600;
-      color: #4A4E69;
-      margin: 36px 0 14px;
-    }
-    .article-body ul {
-      margin: 0 0 20px 24px;
-    }
-    .article-body ul li {
-      margin-bottom: 8px;
-    }
-    .article-body strong {
-      font-weight: 600;
-      color: #4A4E69;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 48px;
-      color: #0D7377;
-      font-weight: 500;
-      font-size: 15px;
-    }
+    .badge-purple { background: #4A4E69; }
+    .badge-green { background: #14A085; }
+    .article h1 { font-size: 32px; font-weight: 600; color: #4A4E69; line-height: 1.35; margin-bottom: 12px; }
+    .article-date { font-size: 14px; color: #888; margin-bottom: 36px; }
+    .article-body { font-size: 17px; line-height: 1.75; color: #333; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body h2 { font-size: 20px; font-weight: 600; color: #4A4E69; margin: 36px 0 14px; }
+    .article-body strong { font-weight: 600; color: #4A4E69; }
+    .example-box { background: #E8F6F5; border-left: 4px solid #0D7377; padding: 16px 20px; border-radius: 0 4px 4px 0; margin: 20px 0; font-size: 16px; }
+    .example-box .label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #0D7377; margin-bottom: 6px; }
+    .back-link { display: inline-block; margin-top: 48px; color: #0D7377; font-weight: 500; font-size: 15px; }
     .back-link:hover { text-decoration: underline; }
-
-    /* FOOTER */
-    footer {
-      background: #4A4E69;
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
-      margin-top: 40px;
-    }
-    footer p {
-      font-size: 14px;
-      line-height: 1.8;
-      opacity: 0.85;
-    }
-
-    @media (max-width: 768px) {
-      .article h1 { font-size: 24px; }
-      .article-body { font-size: 16px; }
-    }
+    footer { background: #4A4E69; color: #fff; text-align: center; padding: 40px 20px; margin-top: 40px; }
+    footer p { font-size: 14px; line-height: 1.8; opacity: 0.85; }
+    @media (max-width: 768px) { .article h1 { font-size: 24px; } .article-body { font-size: 16px; } }
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
   <nav>
     <div class="nav-inner">
       <a href="../index.html" class="nav-logo">Creating Outcomes</a>
       <ul class="nav-links">
-        <li><a href="../index.html#feed">Browse Q&amp;As</a></li>
-        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#questions">Browse Q&amp;As</a></li>
         <li><a href="../index.html#subscribe">Subscribe</a></li>
       </ul>
     </div>
   </nav>
-
-  <!-- ARTICLE -->
   <div class="article-wrap">
     <div class="article">
       <span class="badge badge-teal">Monitor Progress</span>
-      <h1>How does a board shift its agenda from operational reporting to genuine outcome monitoring?</h1>
-      <p class="article-date">June 19, 2026</p>
-
+      <h1>How do we shift our board from receiving reports to actually monitoring outcomes?</h1>
+      <p class="article-date">June 2026</p>
       <div class="article-body">
-        <p>The shift starts with the monitoring calendar, not the agenda template.</p>
+        <p>The difference between receiving reports and monitoring outcomes comes down to one thing: does information flow generate accountability, or does it just generate awareness? Most boards are very good at the latter. The CEO reports, the board listens, members ask a few questions, and everyone leaves with a clearer picture of what's happening. But nothing changes as a result of that clarity, because there was no standard to be held to and no judgment to be rendered. Monitoring requires both.</p>
+        <p>The shift begins before the meeting. To monitor, your board needs pre-established standards — written outcome goals and executive constraints — against which the CEO's report is measured. If those don't exist yet, the first step isn't agenda reform; it's policy adoption. Define what success looks like for the people you serve. Define the limits of acceptable organizational behavior. Document those definitions formally as board policy. Once you have them, every monitoring conversation has a reference point: is the organization meeting these standards or not?</p>
+        <p>Once standards exist, the next shift is in how the CEO presents information. Instead of reporting what happened ("here's what we did this quarter"), the CEO should be reporting compliance ("here's whether we're meeting the board's standards, here's the evidence, and here's my judgment"). That reframing changes the CEO's relationship to the information — they're not just sharing news, they're making a case and accepting accountability for it.</p>
 
-        <p>Most boards try to redesign their meetings first — new agenda format, new consent agenda, new time limits. None of it sticks because the underlying question hasn't been answered: what student outcomes are we actually monitoring, and when?</p>
+        <h2>Changing the Conversation in the Room</h2>
+        <p>The meeting dynamic has to change too. When reports are presented, the natural response is questions that deepen understanding: "Tell me more about that program." "What challenges did you face?" These are fine questions, but they're journalist questions, not governor questions. Monitoring conversations ask different things: "Is this compliant with the goal we set?" "If not, what's the corrective plan?" "What's the timeline for improvement?" Train your board chair to guide discussions toward these accountability-oriented questions rather than letting them drift into program curiosity.</p>
+        <div class="example-box">
+          <div class="label">Reporting vs. Monitoring in Practice</div>
+          <strong>Reporting mode:</strong> "We served 847 clients this quarter, held 12 community events, and launched a new partnership with the county health department."<br><br>
+          <strong>Monitoring mode:</strong> "Our board's outcome goal is that 75% of clients achieve food security within 60 days. This quarter we're at 71% — below target for the second consecutive quarter. I believe we are not in compliance. The gap is concentrated in our eastern district, and here's the corrective plan."
+        </div>
 
-        <h2>Start with the monitoring calendar</h2>
-
-        <p>A monitoring calendar is simply a multi-year schedule that specifies which student outcome goals get board attention in which months. It's not complicated. It answers the question: if we have five student outcome goals, when does each one show up on our agenda — every month? Twice a year? Once a year? What data will we look at each time?</p>
-
-        <p>Most boards don't have this. Instead, they have a standing agenda with "Superintendent's Report" as a line item. The superintendent reports on whatever seems important. The board reacts. Nothing is systematically monitored.</p>
-
-        <h2>Build the monitoring calendar before changing the agenda</h2>
-
-        <p>Decide which goals get which months. A common approach:</p>
-        <ul>
-          <li>Goal 1 (e.g., literacy): January, May, September</li>
-          <li>Goal 2 (e.g., math): February, June, October</li>
-          <li>Goal 3 (e.g., graduation): March, July, November</li>
-          <li>Goal 4 and 5: similar rotation</li>
-          <li>One month per year: board self-evaluation of governance practices</li>
-        </ul>
-
-        <p>Once you know what you're monitoring and when, the agenda changes are obvious. The question isn't "how do we make meetings more outcome-focused?" It's "this month we're monitoring literacy — what data do we need to make that a real discussion, not a report?"</p>
-
-        <h2>The difference between reporting and monitoring</h2>
-
-        <p><strong>Reporting:</strong> the superintendent tells you what happened. You listen, maybe ask questions, move on.</p>
-
-        <p><strong>Monitoring:</strong> the board evaluates data against its stated goals. The conversation is structured: are we on track? If not, why not? What is the superintendent doing about it? Is it sufficient? What does the board need to do differently to enable better results?</p>
-
-        <p>Monitoring has an accountability component that reporting doesn't. This is why boards find it uncomfortable. But it's also why it's the only approach that produces outcome change.</p>
-
-        <h2>Practical first step</h2>
-
-        <p>At your next board meeting, spend 20 minutes reviewing your student outcome goals and deciding: which one will we monitor at each of the next six meetings? Put it on the calendar. Then, for the first monitoring session, ask the superintendent to present 3–5 data points on that goal — not a full report, not a presentation. Just data against the goal. Let the board discuss it for 30 minutes. That's a monitoring conversation.</p>
-
-        <p>It will feel awkward the first time. It will feel less awkward the second time. By the fourth time, the board will be asking questions it has never asked before — because it has a framework for doing so.</p>
-
+        <h2>The Role of the Board in Making This Work</h2>
+        <p>This shift asks something of the board too: the willingness to act when standards aren't met. A board that listens to a non-compliance report and responds with sympathy but no consequence hasn't actually shifted from reporting to monitoring — it's just changed the format of the report. Monitoring creates accountability only if the board is willing to follow through: push for credible improvement plans, factor compliance into CEO evaluations, and ultimately make leadership decisions if sustained non-compliance continues without a credible path to resolution.</p>
+        <p>Most boards that make this shift successfully describe the same experience: it feels uncomfortable at first, because it's more direct and more demanding than what everyone is used to. The CEO may feel scrutinized in an unfamiliar way. Board members may worry about damaging the relationship. But organizations that do the work report that the relationship between the board and the CEO actually improves — because expectations are explicit, accountability is mutual, and everyone is focused on the same thing: the people the organization exists to serve.</p>
         <a href="../index.html" class="back-link">← Back to all Q&amp;As</a>
       </div>
     </div>
   </div>
-
-  <!-- FOOTER -->
   <footer>
-    <p>Creating Outcomes — practical governance for school board members</p>
+    <p>Creating Outcomes — practical governance for boards that exist to make a difference</p>
     <p>© 2026 Creating Outcomes</p>
   </footer>
-
 </body>
 </html>
