@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Creating Outcomes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:   #0D4F72;
+      --amber:  #B87A10;
+      --bg:     #FEFCF8;
+      --cream:  #F5F0E8;
+      --rule:   #E8E0D0;
+      --text:   #1A1A2E;
+      --muted:  #6B6878;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      padding: 44px 24px 32px;
+      text-align: center;
+    }
+    .wordmark {
+      display: inline-block;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+
+    .accent-rule {
+      display: block;
+      width: 80px;
+      height: 2px;
+      background: var(--blue);
+      margin: 0 auto 56px;
+    }
+
+    .about-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+    .about-wrap h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+    .about-wrap h1 em { font-style: italic; color: var(--blue); }
+    .about-body {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .about-body p { margin-bottom: 24px; }
+    .about-body strong { font-weight: 500; color: var(--blue); }
+    .about-body h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 1.3rem;
+      color: var(--text);
+      margin: 48px 0 16px;
+    }
+
+    .premise-box {
+      background: var(--cream);
+      border-left: 3px solid var(--blue);
+      padding: 20px 24px;
+      margin: 32px 0;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 48px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--blue);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+    footer a { color: rgba(255,255,255,0.7); }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 600px) {
+      .about-wrap { padding: 36px 20px 60px; }
+      .about-wrap h1 { font-size: 1.6rem; }
+      .about-body { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="wordmark">Creating Outcomes</a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#questions">Questions</a></li>
+      <li><a href="index.html#subscribe">Subscribe</a></li>
+    </ul>
+  </header>
+
+  <span class="accent-rule"></span>
+
+  <div class="about-wrap">
+    <h1>Governance guidance for boards that exist to <em>make a difference.</em></h1>
+
+    <div class="about-body">
+      <p>Creating Outcomes exists to answer one kind of question: what should a governing board actually do — and how?</p>
+
+      <p>Not what should a board consider, or what factors might be worth weighing. What should it do. Boards that govern well produce better outcomes for the people they serve. The question is how to get there, and the answers are more specific than most governance resources acknowledge.</p>
+
+      <div class="premise-box">
+        Every governing body — hospital system, community foundation, nonprofit association, public agency, housing authority, library — faces the same fundamental challenge: stay connected to mission while delegating management. The governance questions that follow from that challenge are the same regardless of sector. This site answers them.
+      </div>
+
+      <h2>What this site is</h2>
+
+      <p>A practical Q&amp;A resource for people who sit on governing boards and have a specific question in front of them. Not theory. Not research. An answer they can act on at their next meeting.</p>
+
+      <p>Every post on this site answers a real governance question — the kind a board member would search for when something is happening and they need to know what to do. The answers are grounded in a why-based approach to governance: boards exist to produce specific outcomes for the people they serve, and everything a board does should trace back to that purpose.</p>
+
+      <h2>The governing premise</h2>
+
+      <p>A governing board has three jobs and only three: define what outcomes the organization must produce for those it serves, set the limits within which the chief executive operates, and take the legally required actions only a board can take. Everything else is management — and when boards do management, outcomes suffer.</p>
+
+      <p>That premise shapes every answer on this site. When the question is about budget, the answer is about whether the budget reflects the outcomes the board has required — not about line items. When the question is about CEO evaluation, the answer is about whether the CEO achieved the outcomes the board defined — not about effort or activity. When the question is about board meetings, the answer is about whether the board spent its time on what only a board can decide — not on what the staff could have handled.</p>
+
+      <h2>Who this is for</h2>
+
+      <p>Board members and trustees of any governing body. The examples rotate across sectors — you'll see hospital boards, community foundations, nonprofit associations, housing authorities, and others. The governance principles apply across all of them. If you sit on a governing board and you have a question, this site is for you.</p>
+
+      <a href="index.html#questions" class="back-link">Browse all questions &rarr;</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Creating Outcomes &copy; 2026 &nbsp;&mdash;&nbsp; Governance guidance for boards that exist to make a difference</p>
+  </footer>
+
+</body>
+</html>
